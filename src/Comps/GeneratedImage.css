@@ -1,0 +1,40 @@
+@font-face {
+	font-family: Clattering;
+	src: url("../Assets/Clattering.ttf") format("truetype");
+}
+/* @font-face {
+	font-family: 'AzoSans';
+	src: url("./assets/AzoSans-Regular.otf") format("opentype");
+} */
+
+.container {
+	/* position: absolute; */
+	/* top: 0; */
+	display: flex;
+	/* margin-left: 100px; */
+}
+.container-text-location {
+	/* margin: 0px 0px 0px 0px; */
+	/* margin-left: 140px !important;
+	margin-top: 460px !important; */
+	text-align: start;
+	display: flex;
+	flex-direction: column;
+	/* text-shadow: 0 8px 10px rgba(0, 0, 0, 0.4); */
+	/* box */
+}
+
+.text-internship {
+	/* font-size: 234px; */
+	font-family: Clattering;
+	color: white;
+	margin: 0 0 0 0 !important;
+	/* margin: 615px 0 0 150px; */
+}
+.text-country {
+	/* margin-top: -70px; */
+	/* font-size: 234px; */
+	font-family: Clattering;
+	color: #ffc000;
+	/* margin: 615px 0 0 150px; */
+}
