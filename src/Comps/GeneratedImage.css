@@ -2,17 +2,38 @@
 	font-family: Clattering;
 	src: url("../Assets/Clattering.ttf") format("truetype");
 }
-/* @font-face {
-	font-family: 'AzoSans';
-	src: url("./assets/AzoSans-Regular.otf") format("opentype");
-} */
 
-.container {
-	/* position: absolute; */
-	/* top: 0; */
-	display: flex;
-	/* margin-left: 100px; */
+@font-face {
+	font-family: "ProductSans";
+	src: url("../Assets/Product\ Sans\ Regular.ttf") format("truetype");
 }
+@font-face {
+	font-family: "ProductSans";
+	src: url("../Assets/Product\ Sans\ Italic.ttf") format("truetype");
+	font-style: italic;
+}
+@font-face {
+	font-family: "ProductSans";
+	src: url("../Assets/Product\ Sans\ Bold.ttf") format("truetype");
+	font-weight: bold;
+}
+@font-face {
+	font-family: "ProductSans";
+	src: url("../Assets/Product\ Sans\ Bold\ Italic.ttf") format("truetype");
+	font-style: italic;
+	font-weight: bold;
+}
+h1 {
+	font-family: "ProductSans" !important;
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+}
+h2 {
+	font-family: "ProductSans" !important;
+	/* margin-top: 0 !important; */
+	margin-bottom: 0 !important;
+}
+
 .container-text-location {
 	/* margin: 0px 0px 0px 0px; */
 	/* margin-left: 140px !important;
@@ -37,4 +58,47 @@
 	font-family: Clattering;
 	color: #ffc000;
 	/* margin: 615px 0 0 150px; */
+}
+
+.container-details-main {
+	font-family: ProductSans;
+	/* letter-spacing: 2px; */
+
+	text-align: left;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+/* .container-details {
+	margin-bottom: 10px;
+} */
+.container-details-main p {
+	margin-bottom: 0;
+	line-height: 1em;
+}
+.container {
+	/* z-index: 3; */
+	position: absolute;
+}
+.texts {
+	text-align: left;
+	flex-direction: column;
+	pointer-events: none;
+
+	/* position: absolute; */
+	/* top: 0; */
+	display: flex;
+	/* margin-left: 100px; */
+}
+.TransformComponent-module_container__3NwNd {
+	width: 100% !important;
+	height: 100% !important;
+}
+
+.dropzone {
+	border-width: 2px;
+	border-radius: 2px;
+	border-color: #eeeeee;
+	border-style: dashed;
+	padding: 0.5em;
 }

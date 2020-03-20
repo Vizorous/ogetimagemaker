@@ -1,6 +1,6 @@
-import React from 'react';
-import './App.css';
-import GeneratedImage from './Comps/GeneratedImage';
+import React from "react";
+import "./App.css";
+import GeneratedImage from "./Comps/GeneratedImage";
 
 function App() {
 	return (
