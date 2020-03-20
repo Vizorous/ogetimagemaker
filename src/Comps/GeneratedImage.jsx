@@ -59,22 +59,18 @@ export default class GeneratedImage extends Component {
 	}
 
 	componentDidMount() {
-		const height = this.detailsNodeRef.current.clientHeight;
-		const sizeControl = this.state.sizeControl;
-		const adjustedHeight = Math.round(height / sizeControl);
-		// console.log(Math.round(adjustedHeight));
-		if (this.state.adjustedHeight !== adjustedHeight) {
-			this.setState({ adjustedHeight });
-		}
+		this.handleDetailsLineHeight(
+			this.detailsNodeRef,
+			this.state.sizeControl,
+			this.state.adjustedHeight
+		);
 	}
 	componentDidUpdate(prevProps, prevState) {
-		const height = this.detailsNodeRef.current.clientHeight;
-		const sizeControl = this.state.sizeControl;
-		const adjustedHeight = Math.round(height / sizeControl);
-		// console.log(Math.round(adjustedHeight));
-		if (prevState.adjustedHeight !== adjustedHeight) {
-			this.setState({ adjustedHeight });
-		}
+		this.handleDetailsLineHeight(
+			this.detailsNodeRef,
+			this.state.sizeControl,
+			this.state.adjustedHeight
+		);
 	}
 
 	numberWithCommas = x => {
@@ -88,6 +84,15 @@ export default class GeneratedImage extends Component {
 		this.setState({ [type]: value });
 		console.log("testing");
 	};
+	handleDetailsLineHeight = (detailsNodeRef, sizeControl, stateAdjustedHeight) => {
+		const height = detailsNodeRef.current.clientHeight;
+		const adjustedHeight = Math.round(height / sizeControl);
+		// console.log(Math.round(adjustedHeight));
+		if (stateAdjustedHeight !== adjustedHeight) {
+			this.setState({ adjustedHeight });
+		}
+	};
+
 	// handleOGETSwitch = (value, type) => {
 	// 	this.setState({ [type]: value });
 	// };

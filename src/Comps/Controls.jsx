@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Form, Radio, Button } from "semantic-ui-react";
 import { useDropzone } from "react-dropzone";
 export default function Controls(
 	// }
 	props
 ) {
-	const [files, setFiles] = useState([]);
 	const { getRootProps, getInputProps } = useDropzone({
 		accept: "image/*",
 		multiple: false,
@@ -13,19 +12,6 @@ export default function Controls(
 			acceptedFiles.map(file => props.handleChange(URL.createObjectURL(file), "image"));
 		},
 	});
-
-	useEffect(
-		() => () => {
-			// Make sure to revoke the data uris to avoid memory leaks
-			files.forEach(file => {
-				props.handleChange(file.preview, "image");
-				console.log(file.preview);
-
-				// URL.revokeObjectURL(file.preview);
-			});
-		},
-		[files, props]
-	);
 
 	return (
 		<>

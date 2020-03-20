@@ -1,5 +1,4 @@
 import React, { PureComponent } from "react";
-import { Image } from "semantic-ui-react";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
 export default class MiddleImage extends PureComponent {
@@ -138,7 +137,7 @@ export default class MiddleImage extends PureComponent {
 						margin: "auto",
 						// marginTop: `${this.props.sizeControl * 344}px`,
 						position: "absolute",
-						zIndex: "-1",
+						zIndex: "-4",
 					}}>
 					<TransformWrapper
 						defaultScale={1}
@@ -169,22 +168,6 @@ export default class MiddleImage extends PureComponent {
 								<React.Fragment>
 									<TransformComponent>
 										<div>
-											<div
-												style={{
-													position: "absolute",
-													height:
-														// this.state.height <= this.state.width
-														// ?
-														`${this.props.sizeControl * 2000}px`,
-													// : "auto"
-													width:
-														// this.state.height >= this.state.width
-														// ?
-														`${this.props.sizeControl * 2000}px`,
-													// : "auto"
-													backgroundColor: `${this.props.bgColor}`,
-													zIndex: 2,
-												}}></div>
 											<div
 												style={{
 													position: "absolute",
@@ -258,6 +241,23 @@ export default class MiddleImage extends PureComponent {
 						}}
 					</TransformWrapper>
 				</div>
+				<div
+					style={{
+						position: "absolute",
+
+						height:
+							// this.state.height <= this.state.width
+							// ?
+							`${this.props.sizeControl * 2000}px`,
+						// : "auto"
+						width:
+							// this.state.height >= this.state.width
+							// ?
+							`${this.props.sizeControl * 2000}px`,
+						// : "auto"
+						backgroundColor: `${this.props.bgColor}`,
+						zIndex: "-2",
+					}}></div>
 			</div>
 		);
 	}
