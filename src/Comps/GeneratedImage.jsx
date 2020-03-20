@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./GeneratedImage.css";
-import { Input, Form } from "semantic-ui-react";
+// import { Input, Form } from "semantic-ui-react";
 import Lines from "./Lines";
 import Controls from "./Controls";
 import Details from "./Details";
