@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import TempImage from "../Assets/temp1.png";
 import "./GeneratedImage.css";
 import { Input, Form } from "semantic-ui-react";
 import Lines from "./Lines";
