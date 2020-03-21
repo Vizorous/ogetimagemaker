@@ -4,7 +4,7 @@ export default function CountryText(props) {
 	return (
 		<>
 			<div
-				className="container-location"
+				className="Container-location"
 				style={{
 					marginLeft: `${props.sizeControl * 140}px`,
 					marginTop: `${props.sizeControl * 460}px`,

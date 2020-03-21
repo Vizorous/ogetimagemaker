@@ -3,13 +3,15 @@ import { Form, Radio, Button } from "semantic-ui-react";
 import { useDropzone } from "react-dropzone";
 export default function Controls(
 	// }
-	props
+	props,
 ) {
 	const { getRootProps, getInputProps } = useDropzone({
 		accept: "image/*",
 		multiple: false,
 		onDrop: acceptedFiles => {
-			acceptedFiles.map(file => props.handleChange(URL.createObjectURL(file), "image"));
+			acceptedFiles.map(file =>
+				props.handleChange(URL.createObjectURL(file), "image"),
+			);
 		},
 	});
 
@@ -21,6 +23,7 @@ export default function Controls(
 						if (item.type === "oppName") {
 							return (
 								<Form.TextArea
+									key={item.key}
 									rows={2}
 									value={props[item.type]}
 									{...item.desc}
@@ -33,6 +36,7 @@ export default function Controls(
 
 						return (
 							<Form.Input
+								key={item.key}
 								value={props[item.type]}
 								{...item.desc}
 								onChange={e => {
@@ -46,12 +50,14 @@ export default function Controls(
 					{props.FORM_CHECKBOX_DATA.map((item, index) => {
 						return (
 							<Form.Checkbox
+								key={item.key}
 								label={item.label}
 								checked={props[item.type]}
 								onChange={() => {
 									props.handleToggle([item.type]);
 									console.log(props[item.type]);
-								}}></Form.Checkbox>
+								}}
+							></Form.Checkbox>
 						);
 					})}
 					<span style={{ marginLeft: "1em", marginRight: "1em" }}> | </span>
@@ -80,7 +86,8 @@ export default function Controls(
 						checked={props.phoneSwitch}
 						onChange={() => {
 							props.handleToggle("phoneSwitch");
-						}}></Form.Checkbox>
+						}}
+					></Form.Checkbox>
 					<Form.Input
 						value={props.phoneNo}
 						placeholder={"Input Phone No."}
@@ -100,10 +107,16 @@ export default function Controls(
 						// className="m1"
 						type="primary"
 						size="large"
-						onClick={props.handleGenerate}>
+						onClick={props.handleGenerate}
+					>
 						GENERATE
 					</Button>
-					<Button className="m1" type="primary" size="large" onClick={props.handleClear}>
+					<Button
+						className="m1"
+						type="primary"
+						size="large"
+						onClick={props.handleClear}
+					>
 						RESET
 					</Button>
 				</div>

@@ -15,9 +15,21 @@ const supun = "076 909 2185";
 const anupama = "077 867 5798";
 const YELLOW = "#ffc000";
 const FORM_TEXT_DATA = [
-	{ desc: { label: "Country", placeholder: "Enter the Country" }, type: "country", key: 0 },
-	{ desc: { label: "Salary", placeholder: "Enter the Salary" }, type: "salary", key: 1 },
-	{ desc: { label: "Opp. Name", placeholder: "Enter the Opp. Name" }, type: "oppName", key: 1 },
+	{
+		desc: { label: "Country", placeholder: "Enter the Country" },
+		type: "country",
+		key: 0,
+	},
+	{
+		desc: { label: "Salary", placeholder: "Enter the Salary" },
+		type: "salary",
+		key: 1,
+	},
+	{
+		desc: { label: "Opp. Name", placeholder: "Enter the Opp. Name" },
+		type: "oppName",
+		key: 2,
+	},
 ];
 const FORM_CHECKBOX_DATA = [
 	{ key: 0, label: "Accomodation", type: "accom" },
@@ -62,14 +74,14 @@ export default class GeneratedImage extends Component {
 		this.handleDetailsLineHeight(
 			this.detailsNodeRef,
 			this.state.sizeControl,
-			this.state.adjustedHeight
+			this.state.adjustedHeight,
 		);
 	}
 	componentDidUpdate(prevProps, prevState) {
 		this.handleDetailsLineHeight(
 			this.detailsNodeRef,
 			this.state.sizeControl,
-			this.state.adjustedHeight
+			this.state.adjustedHeight,
 		);
 	}
 
@@ -82,9 +94,13 @@ export default class GeneratedImage extends Component {
 		console.log(value, type);
 
 		this.setState({ [type]: value });
-		console.log("testing");
+		// console.log("testing");
 	};
-	handleDetailsLineHeight = (detailsNodeRef, sizeControl, stateAdjustedHeight) => {
+	handleDetailsLineHeight = (
+		detailsNodeRef,
+		sizeControl,
+		stateAdjustedHeight,
+	) => {
 		const height = detailsNodeRef.current.clientHeight;
 		const adjustedHeight = Math.round(height / sizeControl);
 		// console.log(Math.round(adjustedHeight));
@@ -115,7 +131,7 @@ export default class GeneratedImage extends Component {
 			dti.toJpeg(imageNode.current, { quality: 0.8 }).then(blob => {
 				window.saveAs(
 					blob,
-					`${this.state.OGETSwitch}-${this.state.country}-${this.state.oppName}.jpg`
+					`${this.state.OGETSwitch}-${this.state.country}-${this.state.oppName}.jpg`,
 				);
 				// setTimeout(() => {
 				this.setState({ sizeControl: 0.25 });
@@ -146,7 +162,13 @@ export default class GeneratedImage extends Component {
 		// const dragHandlers = { onStart: this.onStart, onStop: this.onStop };
 
 		return (
-			<div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+			<div
+				style={{
+					display: "flex",
+					flexDirection: "column",
+					alignItems: "center",
+				}}
+			>
 				<Controls
 					FORM_CHECKBOX_DATA={FORM_CHECKBOX_DATA}
 					FORM_TEXT_DATA={FORM_TEXT_DATA}
@@ -166,13 +188,15 @@ export default class GeneratedImage extends Component {
 					handleOGETSwitch={this.handleOGETSwitch}
 					phoneSwitch={this.state.phoneSwitch}
 					salarySwitch={this.state.salarySwitch}
-					oppName={this.state.oppName}></Controls>
+					oppName={this.state.oppName}
+				></Controls>
 				<div
 					style={{
 						// backgroundColor: "#303030",
 						height: `${this.state.sizeControl * 2000}px`,
 						width: `${this.state.sizeControl * 2000}px`,
-					}}>
+					}}
+				>
 					<div
 						className="background"
 						ref={this.imageNodeRef}
@@ -182,41 +206,47 @@ export default class GeneratedImage extends Component {
 							height: `${this.state.sizeControl * 2000}px`,
 							width: `${this.state.sizeControl * 2000}px`,
 							backgroundSize: "contain",
-						}}>
+						}}
+					>
 						<div
-							className="container middleImage"
+							className="Container middleImage"
 							style={{
 								// backgroundImage: `url(${TempImage})`,
 								height: `${this.state.sizeControl * 2000}px`,
 								width: `${this.state.sizeControl * 2000}px`,
 
 								// backgroundSize: "contain",
-							}}>
+							}}
+						>
 							<ImageContainer
 								image={this.state.image}
 								bgColor={this.state.bgColor}
 								// dragHandlers={this.dragHandlers}
-								sizeControl={this.state.sizeControl}></ImageContainer>
+								sizeControl={this.state.sizeControl}
+							></ImageContainer>
 						</div>
 						<div
-							className="container lines"
+							className="Container lines"
 							style={{
 								height: `${this.state.sizeControl * 2000}px`,
 								width: `${this.state.sizeControl * 2000}px`,
 								pointerEvents: "none",
-							}}>
+							}}
+						>
 							<Lines color={YELLOW} height={this.state.adjustedHeight}></Lines>
 						</div>
 						<HeadingText
 							sizeControl={this.state.sizeControl}
-							oppName={this.state.oppName}></HeadingText>
-						<div className="container texts">
-							<div className="container-top-text">
+							oppName={this.state.oppName}
+						></HeadingText>
+						<div className="Container texts">
+							<div className="Container-top-text">
 								<CountryText
 									country={this.state.country}
-									sizeControl={this.state.sizeControl}></CountryText>
+									sizeControl={this.state.sizeControl}
+								></CountryText>
 							</div>
-							<div className="container-btm-text">
+							<div className="Container-btm-text">
 								<Details
 									sizeControl={this.state.sizeControl}
 									detailsNodeRef={this.detailsNodeRef}
@@ -227,22 +257,32 @@ export default class GeneratedImage extends Component {
 									accom={this.state.accom}
 									pickup={this.state.pickup}
 									OGETSwitch={this.state.OGETSwitch}
-									numberWithCommas={this.numberWithCommas}></Details>
+									numberWithCommas={this.numberWithCommas}
+								></Details>
 							</div>
 							<div
 								style={{
 									position: "absolute",
 									marginTop: `${this.state.sizeControl * 1742}px`,
 									marginLeft: `${this.state.sizeControl * 1180}px`,
-								}}>
-								<h1 style={{ fontSize: `${this.state.sizeControl * 50}px`, fontWeight: "normal" }}>
+								}}
+							>
+								<h1
+									className={"whatsapp"}
+									style={{
+										fontSize: `${this.state.sizeControl * 50}px`,
+										fontWeight: "normal",
+									}}
+								>
 									Whatsapp Now!
 								</h1>
 								<h2
+									className="phoneno"
 									style={{
 										fontSize: `${this.state.sizeControl * 80}px`,
 										marginTop: `-${this.state.sizeControl * 12}px `,
-									}}>
+									}}
+								>
 									{this.state.phoneNo}
 								</h2>
 							</div>

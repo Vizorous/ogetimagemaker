@@ -22,7 +22,7 @@ export default class MiddleImage extends PureComponent {
 		};
 	}
 	componentDidUpdate(prevProps, prevState) {
-		console.log("updated");
+		// console.log("updated");
 	}
 
 	render() {
@@ -35,7 +35,8 @@ export default class MiddleImage extends PureComponent {
 						marginTop: `${this.props.sizeControl * 344}px`,
 						marginLeft: `${this.props.sizeControl * 344}px`,
 						position: "absolute",
-					}}>
+					}}
+				>
 					<TransformWrapper
 						defaultScale={1}
 						options={{
@@ -50,7 +51,7 @@ export default class MiddleImage extends PureComponent {
 								(2000 * params.positionY) / 1312.0,
 								params.scale,
 								0,
-								"linear"
+								"linear",
 							);
 						}}
 						pan={{
@@ -64,7 +65,7 @@ export default class MiddleImage extends PureComponent {
 						}}
 						onPanning={params => {
 							// console.log(params.positionX, params.positionY);
-							console.log(this.midImageNode);
+							//   console.log(this.midImageNode);
 							const positionX = params.positionX;
 							const positionY = params.positionY;
 							this.state.setTransform(
@@ -72,10 +73,11 @@ export default class MiddleImage extends PureComponent {
 								(2000 * params.positionY) / 1312.0,
 								params.scale,
 								0,
-								"linear"
+								"linear",
 							);
 							this.setState({ positionX, positionY });
-						}}>
+						}}
+					>
 						{({
 							zoomIn,
 							zoomOut,
@@ -104,7 +106,7 @@ export default class MiddleImage extends PureComponent {
 												const width = this.midImageNode.current.naturalWidth;
 												this.setState({ height, width });
 												// console.log(height);
-												console.log("testing");
+												// console.log("testing");
 												this.setState({ positionX, positionY });
 
 												setTimeout(() => {
@@ -138,7 +140,8 @@ export default class MiddleImage extends PureComponent {
 						// marginTop: `${this.props.sizeControl * 344}px`,
 						position: "absolute",
 						zIndex: "-4",
-					}}>
+					}}
+				>
 					<TransformWrapper
 						defaultScale={1}
 						options={{
@@ -148,7 +151,8 @@ export default class MiddleImage extends PureComponent {
 						}}
 						onPanningStop={params => {
 							// console.log(params);
-						}}>
+						}}
+					>
 						{({
 							zoomIn,
 							zoomOut,
@@ -180,7 +184,8 @@ export default class MiddleImage extends PureComponent {
 													// 		? `${this.props.sizeControl * 2000}px`
 													// : "auto",
 													// backgroundColor: `${this.props.bgColor}`,
-												}}>
+												}}
+											>
 												<img
 													// style={{ }}
 													src={`${this.props.image}`}
@@ -188,23 +193,29 @@ export default class MiddleImage extends PureComponent {
 													id="outImg"
 													onLoad={params => {
 														// console.log(this.midImageNode);
-														const height = this.outImageNode.current.naturalHeight;
-														const width = this.outImageNode.current.naturalWidth;
+														const height = this.outImageNode.current
+															.naturalHeight;
+														const width = this.outImageNode.current
+															.naturalWidth;
 														// console.log(height);
 
 														if (height <= width) {
-															this.setState({ outHeight: `${this.props.sizeControl * 2000}px` });
+															this.setState({
+																outHeight: `${this.props.sizeControl * 2000}px`,
+															});
 															this.setState({ outWidth: "auto" });
 															// debugger;
 														} else {
 															// debugger;
-															this.setState({ outWidth: `${this.props.sizeControl * 2000}px` });
+															this.setState({
+																outWidth: `${this.props.sizeControl * 2000}px`,
+															});
 															this.setState({ outHeight: "auto" });
 														}
 														setTimeout(() => {
 															resetTransform();
 
-															console.log("ssdf");
+															//   console.log("ssdf");
 
 															this.setState({ st: setPositionX }, params => {
 																this.state.st(40, 0, 0, "linear");
@@ -214,7 +225,7 @@ export default class MiddleImage extends PureComponent {
 																params => {
 																	this.state.setPositionX(0, 0, 0, "linear");
 																	this.state.setPositionY(0, 0, 0, "linear");
-																}
+																},
 															);
 														}, 300);
 													}}
@@ -257,7 +268,8 @@ export default class MiddleImage extends PureComponent {
 						// : "auto"
 						backgroundColor: `${this.props.bgColor}`,
 						zIndex: "-2",
-					}}></div>
+					}}
+				></div>
 			</div>
 		);
 	}

@@ -1,38 +1,38 @@
 .App {
 	text-align: center;
+	/* overflow-anchor: none; */
 }
-
-.App-logo {
-	height: 40vmin;
-	pointer-events: none;
+.Container-header {
+	position: sticky;
+	position: -webkit-sticky;
+	top: 0px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-	.App-logo {
-		animation: App-logo-spin infinite 20s linear;
-	}
+.headercover {
+	height: 6rem;
 }
-
-.App-header {
-	background-color: #282c34;
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	font-size: calc(10px + 2vmin);
-	color: white;
+.header-sticky {
+	transition: box-shadow 0.5s ease-out, padding 0.2s ease-out,
+		background-color 0.5s ease-out;
+	-webkit-transition: box-shadow 0.5s ease-out, padding 0.2s ease-out,
+		background-color 0.5s ease-out;
+	-moz-transition: box-shadow 0.5s ease-out, padding 0.2s ease-out,
+		background-color 0.5s ease-out;
+	-ms-transition: box-shadow 0.5s ease-out, padding 0.2s ease-out,
+		background-color 0.5s ease-out;
+	-o-transition: box-shadow 0.5s ease-out, padding 0.2s ease-out,
+		background-color 0.5s ease-out;
 }
-
-.App-link {
-	color: #61dafb;
+#aiesec-man-path {
+	transition: fill 0.5s ease-out;
+	-webkit-transition: fill 0.5s ease-out;
+	-moz-transition: fill 0.5s ease-out;
+	-ms-transition: fill 0.5s ease-out;
+	-o-transition: fill 0.5s ease-out;
 }
-
-@keyframes App-logo-spin {
-	from {
-		transform: rotate(0deg);
-	}
-	to {
-		transform: rotate(360deg);
-	}
+.header-text {
+	transition: all 0.5s ease-out;
+	-webkit-transition: all 0.5s ease-out;
+	-moz-transition: all 0.5s ease-out;
+	-ms-transition: all 0.5s ease-out;
+	-o-transition: all 0.5s ease-out;
 }

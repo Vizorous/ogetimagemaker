@@ -4,7 +4,7 @@ export default function Details(props) {
 	return (
 		<>
 			<div
-				className="container-details-main"
+				className="Container-details-main"
 				style={{
 					// height: `${props.sizeControl * 400}px`,
 					marginLeft: `${props.sizeControl * 1430}px`,
@@ -18,7 +18,7 @@ export default function Details(props) {
 				ref={props.detailsNodeRef}>
 				{}
 				{props.salarySwitch ? (
-					<div className="container-details salary">
+					<div className="Container-details salary">
 						<p className="text-salary-headline" style={{ color: "white", fontWeight: "bold" }}>
 							SALARY :
 						</p>
@@ -37,7 +37,7 @@ export default function Details(props) {
 					</div>
 				) : null}
 				{props.accom ? (
-					<div className="container-details accom">
+					<div className="Container-details accom">
 						{}
 						<p
 							className="text-accom-headline"
@@ -61,7 +61,7 @@ export default function Details(props) {
 					</div>
 				) : null}
 				{props.food ? (
-					<div className="container-details food">
+					<div className="Container-details food">
 						<p
 							className="text-food-headline"
 							style={{
@@ -85,7 +85,7 @@ export default function Details(props) {
 					</div>
 				) : null}
 				{props.pickup ? (
-					<div className="container-details pickup">
+					<div className="Container-details pickup">
 						<p
 							className="text-pickup-headline"
 							style={{

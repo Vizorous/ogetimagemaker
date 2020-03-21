@@ -23,18 +23,18 @@
 	font-style: italic;
 	font-weight: bold;
 }
-h1 {
+.whatsapp {
 	font-family: "ProductSans" !important;
 	margin-top: 0 !important;
 	margin-bottom: 0 !important;
 }
-h2 {
+.phoneno {
 	font-family: "ProductSans" !important;
 	/* margin-top: 0 !important; */
 	margin-bottom: 0 !important;
 }
 
-.container-text-location {
+.Container-text-location {
 	/* margin: 0px 0px 0px 0px; */
 	/* margin-left: 140px !important;
 	margin-top: 460px !important; */
@@ -60,7 +60,7 @@ h2 {
 	/* margin: 615px 0 0 150px; */
 }
 
-.container-details-main {
+.Container-details-main {
 	font-family: ProductSans;
 	/* letter-spacing: 2px; */
 
@@ -69,14 +69,14 @@ h2 {
 	flex-direction: column;
 	justify-content: space-evenly;
 }
-/* .container-details {
+/* .Container-details {
 	margin-bottom: 10px;
 } */
-.container-details-main p {
+.Container-details-main p {
 	margin-bottom: 0;
 	line-height: 1em;
 }
-.container {
+.Container {
 	/* z-index: 3; */
 	position: absolute;
 }

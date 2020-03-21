@@ -4,7 +4,7 @@ export default function HeadingText(props) {
 	return (
 		<>
 			<div
-				className="container heading"
+				className="Container heading"
 				style={{
 					// backgroundColor: "red",
 					width: "inherit",
@@ -14,10 +14,12 @@ export default function HeadingText(props) {
 					justifyContent: "center",
 					pointerEvents: "none",
 					flexDirection: "column",
-				}}>
+				}}
+			>
 				{props.oppName.split("\n").map((item, i) => {
 					return (
 						<h1
+							className="whatsapp"
 							style={{
 								color: "#ffffff",
 								textAlign: "center",
@@ -25,7 +27,8 @@ export default function HeadingText(props) {
 								fontSize: `${props.sizeControl * 120}px`,
 								lineHeight: `${props.sizeControl * 130}px`,
 							}}
-							key={i}>
+							key={i}
+						>
 							{item}
 						</h1>
 					);
