@@ -1,104 +1,144 @@
 @font-face {
-	font-family: Clattering;
-	src: url("../Assets/Clattering.ttf") format("truetype");
+  font-family: Clattering;
+  src: url("../Assets/Clattering.ttf") format("truetype");
 }
 
 @font-face {
-	font-family: "ProductSans";
-	src: url("../Assets/Product\ Sans\ Regular.ttf") format("truetype");
+  font-family: "ProductSans";
+  src: url("../Assets/Product\ Sans\ Regular.ttf") format("truetype");
 }
 @font-face {
-	font-family: "ProductSans";
-	src: url("../Assets/Product\ Sans\ Italic.ttf") format("truetype");
-	font-style: italic;
+  font-family: "ProductSans";
+  src: url("../Assets/Product\ Sans\ Italic.ttf") format("truetype");
+  font-style: italic;
 }
 @font-face {
-	font-family: "ProductSans";
-	src: url("../Assets/Product\ Sans\ Bold.ttf") format("truetype");
-	font-weight: bold;
+  font-family: "ProductSans";
+  src: url("../Assets/Product\ Sans\ Bold.ttf") format("truetype");
+  font-weight: bold;
 }
 @font-face {
-	font-family: "ProductSans";
-	src: url("../Assets/Product\ Sans\ Bold\ Italic.ttf") format("truetype");
-	font-style: italic;
-	font-weight: bold;
+  font-family: "ProductSans";
+  src: url("../Assets/Product\ Sans\ Bold\ Italic.ttf") format("truetype");
+  font-style: italic;
+  font-weight: bold;
 }
 .whatsapp {
-	font-family: "ProductSans" !important;
-	margin-top: 0 !important;
-	margin-bottom: 0 !important;
+  font-family: "ProductSans" !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }
 .phoneno {
-	font-family: "ProductSans" !important;
-	/* margin-top: 0 !important; */
-	margin-bottom: 0 !important;
+  font-family: "ProductSans" !important;
+  /* margin-top: 0 !important; */
+  margin-bottom: 0 !important;
 }
 
 .Container-text-location {
-	/* margin: 0px 0px 0px 0px; */
-	/* margin-left: 140px !important;
+  /* margin: 0px 0px 0px 0px; */
+  /* margin-left: 140px !important;
 	margin-top: 460px !important; */
-	text-align: start;
-	display: flex;
-	flex-direction: column;
-	/* text-shadow: 0 8px 10px rgba(0, 0, 0, 0.4); */
-	/* box */
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+  /* text-shadow: 0 8px 10px rgba(0, 0, 0, 0.4); */
+  /* box */
 }
 
 .text-internship {
-	/* font-size: 234px; */
-	font-family: Clattering;
-	color: white;
-	margin: 0 0 0 0 !important;
-	/* margin: 615px 0 0 150px; */
+  /* font-size: 234px; */
+  font-family: Clattering;
+  color: white;
+  margin: 0 0 0 0 !important;
+  /* margin: 615px 0 0 150px; */
 }
 .text-country {
-	/* margin-top: -70px; */
-	/* font-size: 234px; */
-	font-family: Clattering;
-	color: #ffc000;
-	/* margin: 615px 0 0 150px; */
+  /* margin-top: -70px; */
+  /* font-size: 234px; */
+  font-family: Clattering;
+  color: #ffc000;
+  /* margin: 615px 0 0 150px; */
 }
 
 .Container-details-main {
-	font-family: ProductSans;
-	/* letter-spacing: 2px; */
+  font-family: ProductSans;
+  /* letter-spacing: 2px; */
 
-	text-align: left;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-evenly;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 /* .Container-details {
 	margin-bottom: 10px;
 } */
 .Container-details-main p {
-	margin-bottom: 0;
-	line-height: 1em;
+  margin-bottom: 0;
+  line-height: 1em;
 }
 .Container {
-	/* z-index: 3; */
-	position: absolute;
+  /* z-index: 3; */
+  position: absolute;
 }
 .texts {
-	text-align: left;
-	flex-direction: column;
-	pointer-events: none;
+  text-align: left;
+  flex-direction: column;
+  pointer-events: none;
 
-	/* position: absolute; */
-	/* top: 0; */
-	display: flex;
-	/* margin-left: 100px; */
+  /* position: absolute; */
+  /* top: 0; */
+  display: flex;
+  /* margin-left: 100px; */
 }
 .TransformComponent-module_container__3NwNd {
-	width: 100% !important;
-	height: 100% !important;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 .dropzone {
-	border-width: 2px;
-	border-radius: 2px;
-	border-color: #eeeeee;
-	border-style: dashed;
-	padding: 0.5em;
+  border-width: 2px;
+  border-radius: 2px;
+  border-color: #eeeeee;
+  border-style: dashed;
+  padding: 0.5em;
+}
+
+/* On screens that are 992px or less, set the background color to blue */
+/* @media screen and (max-width: 992px) {
+  body {
+    background-color: blue;
+  }
+} */
+.checkbox-container {
+  /* justify-content: space-around; */
+}
+.checkboxes {
+  /* font-size: 4rem !important; */
+  margin: 0.5rem !important;
+}
+.label {
+  font-size: 1rem !important;
+}
+.form-container {
+  width: 70%;
+}
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 600px) {
+  .form-container {
+    width: 90%;
+  }
+  .footer-segment {
+    padding: 16px 16px !important;
+  }
+}
+.ui.placeholder .header:not(:first-child):before,
+.ui.placeholder .image:not(:first-child):before,
+.ui.placeholder .paragraph:not(:first-child):before {
+  height: 0;
+}
+
+.phoneno-checkbox {
+  display: flex;
+  align-items: center;
+  margin-left: 0 !important;
 }
