@@ -1,14 +1,17 @@
 import React from "react";
 import mainImg from "../Assets/main.svg";
-export default function Lines({ color = "#ffc000", height = 0 }) {
+export default function Lines({
+  color = "#ffc000",
+  adjustedDetailHeight = 0,
+  adjustedCountryHeight = 0,
+}) {
   return (
     <div
       style={{
         backgroundImage: `url(${mainImg})`,
         // "--path": "polygon(100% 0, 100% 43%, 89% 43%, 89% 68%, 100% 68%, 100% 100%, 0 100%, 0 0);",
-        "--path": `polygon(50% 0%, 0% 100%, 100% 100%)`
-      }}
-    >
+        "--path": `polygon(50% 0%, 0% 100%, 100% 100%)`,
+      }}>
       {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 2000"><defs><style>.cls-1{fill:none;stroke:#ffc000;strokeMiterlimit:10;strokeWidth:8px;}.cls-2{fill:#ffc000;}</style></defs><title>backgroundyellow</title><g id="Layer_2" data-name="Layer 2"><polyline class="cls-1" points="1656.2 1564.62 1656.2 1656.2 343.8 1656.2 343.8 1000"/><polyline class="cls-1" points="343.8 505.07 343.8 343.8 1656.2 343.8 1656.2 1136.53"/><rect class="cls-2" x="1140.8" y="1731.73" width="693.33" height="164.27"/><rect class="cls-2" x="1965.33" y="413.69" width="34.67" height="112.36"/><rect class="cls-2" y="1451.73" width="34.93" height="112.27"/><rect class="cls-2" y="1980.8" width="2000" height="19.2"/></g></svg> */}
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 2000">
         <defs>
@@ -16,8 +19,11 @@ export default function Lines({ color = "#ffc000", height = 0 }) {
             <clipPath id="myClip">
               <polygon
                 points={`0 0,2000 0,2000 1100,1200 1100,1200 ${1135 +
-                  height},2000
-                                ${height + 1135},2000 2000,00 2000`}
+                  adjustedDetailHeight},2000
+                                ${adjustedDetailHeight +
+                                  1135},2000 2000,00 2000, 0 ${440 +
+                  adjustedCountryHeight}, 600 ${440 +
+                  adjustedCountryHeight},600 480, 0 480`}
               />
             </clipPath>
           </defs>
@@ -56,7 +62,7 @@ export default function Lines({ color = "#ffc000", height = 0 }) {
           </g>
           <polyline
             // clip-path="url(#path)"
-            points="343.8 494.93 343.8 343.8 1656.2 343.8 1656.2 1656.2 343.8 1656.2 343.8 1000"
+            points="343.8 494.93 343.8 343.8 1656.2 343.8 1656.2 1656.2 343.8 1656.2 343.8 494.93"
             fill="none"
             stroke="#ffc000"
             strokeMiterlimit="10"

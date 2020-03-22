@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import GeneratedImage from "./Comps/GeneratedImage";
-import { Visibility, Container, Segment, Header } from "semantic-ui-react";
+import { Visibility, Segment } from "semantic-ui-react";
 import HeaderView from "./Comps/HeaderView";
 
 function App() {
@@ -72,13 +72,6 @@ function App() {
             <h6 style={{ margin: 0, lineHeight: "1.3em" }}> EB Wolves 20.21</h6>
           </div>
         </Segment>{" "}
-        {/* <Container
-          fluid
-          style={{
-            marginTop: "16px",
-            height: "40px",
-            backgroundColor: "#Ededed",
-          }}><Container ></Container></Container> */}
       </footer>
     </div>
   );

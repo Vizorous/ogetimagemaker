@@ -48,7 +48,8 @@ const defaultState = {
   pickup: false,
   salarySwitch: true,
   // count: 0,
-  adjustedHeight: 0,
+  adjustedDetailHeight: 0,
+  adjustedCountryHeight: 0,
   // status: "Provided",
   oppName: "",
   image: noImg,
@@ -60,6 +61,7 @@ const defaultState = {
   outHeight: 300,
   outWidth: "auto",
   disableGen: true,
+  countryFontSize: 235,
 };
 export default class GeneratedImage extends Component {
   constructor(props) {
@@ -67,23 +69,38 @@ export default class GeneratedImage extends Component {
 
     this.imageNodeRef = React.createRef();
     this.detailsNodeRef = React.createRef();
+    this.countryNodeRef = React.createRef();
     this.state = {
       ...defaultState,
     };
   }
 
   componentDidMount() {
-    this.handleDetailsLineHeight(
+    this.handleLineHeight(
+      "adjustedDetailHeight",
       this.detailsNodeRef,
       this.state.sizeControl,
-      this.state.adjustedHeight
+      this.state.adjustedDetailHeight
+    );
+    this.handleLineHeight(
+      "adjustedCountryHeight",
+      this.countryNodeRef,
+      this.state.sizeControl,
+      this.state.adjustedCountryHeight
     );
   }
   componentDidUpdate(prevProps, prevState) {
-    this.handleDetailsLineHeight(
+    this.handleLineHeight(
+      "adjustedDetailHeight",
       this.detailsNodeRef,
       this.state.sizeControl,
-      this.state.adjustedHeight
+      this.state.adjustedDetailHeight
+    );
+    this.handleLineHeight(
+      "adjustedCountryHeight",
+      this.countryNodeRef,
+      this.state.sizeControl,
+      this.state.adjustedCountryHeight
     );
     this.handleValidation(
       this.state.country,
@@ -155,7 +172,8 @@ export default class GeneratedImage extends Component {
 
     // console.log("testing");
   };
-  handleDetailsLineHeight = (
+  handleLineHeight = (
+    type,
     detailsNodeRef,
     sizeControl,
     stateAdjustedHeight
@@ -164,7 +182,7 @@ export default class GeneratedImage extends Component {
     const adjustedHeight = Math.round(height / sizeControl);
     // console.log(Math.round(adjustedHeight));
     if (stateAdjustedHeight !== adjustedHeight) {
-      this.setState({ adjustedHeight });
+      this.setState({ [type]: adjustedHeight });
     }
   };
 
@@ -193,7 +211,10 @@ export default class GeneratedImage extends Component {
           `${this.state.OGETSwitch}-${this.state.country}-${this.state.oppName}.jpg`
         );
         // setTimeout(() => {
-        this.setState({ sizeControl: 0.25 });
+        this.setState({
+          sizeControl:
+            window.innerWidth <= 600 ? (window.innerWidth / 2000) * 0.9 : 0.25,
+        });
       });
       // }, 200);
       // }, 400);
@@ -228,6 +249,7 @@ export default class GeneratedImage extends Component {
           alignItems: "center",
         }}>
         <Controls
+          countryFontSize={this.state.countryFontSize}
           FORM_CHECKBOX_DATA={FORM_CHECKBOX_DATA}
           FORM_TEXT_DATA={FORM_TEXT_DATA}
           handleSubmit={this.handleSubmit}
@@ -286,7 +308,12 @@ export default class GeneratedImage extends Component {
                 width: `${this.state.sizeControl * 2000}px`,
                 pointerEvents: "none",
               }}>
-              <Lines color={YELLOW} height={this.state.adjustedHeight}></Lines>
+              <Lines
+                color={YELLOW}
+                adjustedDetailHeight={this.state.adjustedDetailHeight}
+                adjustedCountryHeight={
+                  this.state.adjustedCountryHeight
+                }></Lines>
             </div>
             <HeadingText
               sizeControl={this.state.sizeControl}
@@ -294,10 +321,14 @@ export default class GeneratedImage extends Component {
             <div className="Container texts">
               <div className="Container-top-text">
                 <CountryText
+                  countryNodeRef={this.countryNodeRef}
+                  countryFontSize={this.state.countryFontSize}
                   country={this.state.country}
                   sizeControl={this.state.sizeControl}></CountryText>
               </div>
-              <div className="Container-btm-text">
+              <div
+                className="Container-btm-text"
+                style={{ position: "absolute" }}>
                 <Details
                   sizeControl={this.state.sizeControl}
                   detailsNodeRef={this.detailsNodeRef}
@@ -312,6 +343,7 @@ export default class GeneratedImage extends Component {
               </div>
               <div
                 style={{
+                  minWidth: "max-content",
                   position: "absolute",
                   marginTop: `${this.state.sizeControl * 1742}px`,
                   marginLeft: `${this.state.sizeControl * 1180}px`,

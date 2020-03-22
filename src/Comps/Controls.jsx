@@ -7,11 +7,22 @@ import {
   Header,
   Divider,
 } from "semantic-ui-react";
+import { Slider } from "react-semantic-ui-range";
 import { useDropzone } from "react-dropzone";
 export default function Controls(
   // }
   props
 ) {
+  const settings = {
+    // start: props.countryFontSize,
+    min: 150,
+    max: 235,
+    step: 5,
+    onChange: value => {
+      props.handleChange(value, "countryFontSize");
+      console.log(value);
+    },
+  };
   const { getRootProps, getInputProps } = useDropzone({
     accept: "image/*",
     multiple: false,
@@ -21,6 +32,11 @@ export default function Controls(
       );
     },
   });
+  // const makeSlider = countryFontSize => {
+  //   return (
+
+  //   );
+  // };
 
   return (
     <>
@@ -37,18 +53,20 @@ export default function Controls(
           // width="equal"
           >
             {props.FORM_TEXT_DATA.map((item, index) => {
-              if (item.type === "oppName") {
+              if (item.type === "oppName" || item.type === "country") {
                 return (
-                  <Form.TextArea
-                    //   inline
-                    key={item.key}
-                    rows={2}
-                    value={props[item.type]}
-                    {...item.desc}
-                    onChange={e => {
-                      props.handleChange(e.target.value, item.type);
-                    }}
-                  />
+                  <>
+                    <Form.TextArea
+                      //   inline
+                      key={item.key}
+                      rows={2}
+                      value={props[item.type]}
+                      {...item.desc}
+                      onChange={e => {
+                        props.handleChange(e.target.value, item.type);
+                      }}
+                    />
+                  </>
                 );
               }
 
@@ -160,6 +178,24 @@ export default function Controls(
             <p>Drag 'n' drop/click to select images</p>
           </div>
         </Container>
+        <Divider
+          style={{
+            width: "90%",
+            margin: "1rem auto 1.5rem auto",
+          }}></Divider>
+        <>
+          <label style={{ fontWeight: "700", marginBottom: "4px" }}>
+            Adjust Country Font Size
+          </label>
+
+          <div style={{ width: "90%", margin: "auto" }}>
+            <Slider
+              value={props.countryFontSize}
+              color="blue"
+              settings={settings}
+            />
+          </div>
+        </>
         <Divider
           style={{
             width: "90%",
