@@ -32,7 +32,7 @@ const FORM_TEXT_DATA = [
   },
 ];
 const FORM_CHECKBOX_DATA = [
-  { key: 0, label: "Accomodation", type: "accom" },
+  { key: 0, label: "Accommodation", type: "accom" },
   { key: 1, label: "Food", type: "food" },
   { key: 2, label: "Airport Pickup", type: "pickup" },
   { key: 3, label: "Salary", type: "salarySwitch" },

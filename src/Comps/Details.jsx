@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function Details(props) {
-
   return (
     <>
       <div
@@ -54,7 +53,7 @@ export default function Details(props) {
                 fontWeight: "bold",
                 letterSpacing: `${props.sizeControl * 5}px`,
               }}>
-              Accomodation
+              Accommodation
             </p>
             <p
               className="text-accom-var"
