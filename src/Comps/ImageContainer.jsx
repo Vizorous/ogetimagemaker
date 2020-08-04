@@ -10,13 +10,13 @@ export default class MiddleImage extends PureComponent {
     this.state = {
       posX: 0,
       posY: 0,
-      setPositionX: params => {
+      setPositionX: (params) => {
         return;
       },
-      setPositionY: params => {
+      setPositionY: (params) => {
         return;
       },
-      setTransform: params => {
+      setTransform: (params) => {
         return;
       },
     };
@@ -38,12 +38,14 @@ export default class MiddleImage extends PureComponent {
           }}>
           <TransformWrapper
             defaultScale={1}
+            positionX={this.state.posX}
+            positionY={this.state.posY}
             options={{
               limitToWrapper: true,
               limitToBounds: true,
               centerContent: true,
             }}
-            onZoomChange={params => {
+            onZoomChange={(params) => {
               console.log(params);
               this.state.setTransform(
                 (2000 * params.positionX) / 1312.0,
@@ -62,7 +64,7 @@ export default class MiddleImage extends PureComponent {
             scalePadding={{
               paddingSize: 0,
             }}
-            onPanning={params => {
+            onPanning={(params) => {
               // console.log(params.positionX, params.positionY);
               //   console.log(this.midImageNode);
               const positionX = params.positionX;
@@ -98,7 +100,7 @@ export default class MiddleImage extends PureComponent {
                       src={`${this.props.image}`}
                       alt="test"
                       id="midImg"
-                      onLoad={params => {
+                      onLoad={(params) => {
                         // console.log(this.midImageNode);
                         const height = this.midImageNode.current.naturalHeight;
                         const width = this.midImageNode.current.naturalWidth;
@@ -116,15 +118,19 @@ export default class MiddleImage extends PureComponent {
                         height:
                           this.state.height <= this.state.width
                             ? `${this.props.sizeControl * 1312}px`
-                            : `${((this.props.sizeControl * 1312) /
-                                this.state.width) *
-                                this.state.height}px`,
+                            : `${
+                                ((this.props.sizeControl * 1312) /
+                                  this.state.width) *
+                                this.state.height
+                              }px`,
                         width:
                           this.state.height >= this.state.width
                             ? `${this.props.sizeControl * 1312}px`
-                            : `${((this.props.sizeControl * 1312) /
-                                this.state.height) *
-                                this.state.width}px`,
+                            : `${
+                                ((this.props.sizeControl * 1312) /
+                                  this.state.height) *
+                                this.state.width
+                              }px`,
                       }}
                       ref={this.midImageNode}
                     />
@@ -150,7 +156,7 @@ export default class MiddleImage extends PureComponent {
               limitToBounds: true,
               centerContent: true,
             }}
-            onPanningStop={params => {
+            onPanningStop={(params) => {
               // console.log(params);
             }}>
             {({
@@ -190,7 +196,7 @@ export default class MiddleImage extends PureComponent {
                           src={`${this.props.image}`}
                           alt="test"
                           id="outImg"
-                          onLoad={params => {
+                          onLoad={(params) => {
                             // console.log(this.midImageNode);
                             // const height = this.outImageNode.current
                             //   .naturalHeight;
@@ -216,12 +222,12 @@ export default class MiddleImage extends PureComponent {
 
                               //   console.log("ssdf");
 
-                              this.setState({ st: setPositionX }, params => {
+                              this.setState({ st: setPositionX }, (params) => {
                                 this.state.st(40, 0, 0, "linear");
                               });
                               this.setState(
                                 { setPositionX, setPositionY, setTransform },
-                                params => {
+                                (params) => {
                                   this.state.setPositionX(0, 0, 0, "linear");
                                   this.state.setPositionY(0, 0, 0, "linear");
                                 }
@@ -233,15 +239,19 @@ export default class MiddleImage extends PureComponent {
                             height:
                               this.state.height <= this.state.width
                                 ? `${this.props.sizeControl * 2000}px`
-                                : `${((this.props.sizeControl * 2000) /
-                                    this.state.width) *
-                                    this.state.height}px`,
+                                : `${
+                                    ((this.props.sizeControl * 2000) /
+                                      this.state.width) *
+                                    this.state.height
+                                  }px`,
                             width:
                               this.state.height >= this.state.width
                                 ? `${this.props.sizeControl * 2000}px`
-                                : `${((this.props.sizeControl * 2000) /
-                                    this.state.height) *
-                                    this.state.width}px`,
+                                : `${
+                                    ((this.props.sizeControl * 2000) /
+                                      this.state.height) *
+                                    this.state.width
+                                  }px`,
                           }}
                           ref={this.outImageNode}
                         />
