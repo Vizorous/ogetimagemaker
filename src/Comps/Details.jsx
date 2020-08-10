@@ -1,8 +1,19 @@
 import React from "react";
-
+import GTa from "../Assets/GTa.png";
+import GTe from "../Assets/GTe.png";
 export default function Details(props) {
   return (
     <>
+      <div
+        style={{
+          position: "absolute",
+          marginLeft: `${props.sizeControl * 1450}px`,
+          marginTop: `${props.sizeControl * 100}px`,
+        }}>
+        <img
+          src={props.OGETSwitch === "oGT" ? GTa : GTe}
+          style={{ width: `${props.sizeControl * 400}px` }}></img>
+      </div>
       <div
         className="Container-details-main"
         style={{
