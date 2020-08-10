@@ -7,12 +7,12 @@ export default function Details(props) {
       <div
         style={{
           position: "absolute",
-          marginLeft: `${props.sizeControl * 1450}px`,
-          marginTop: `${props.sizeControl * 100}px`,
+          marginLeft: `${props.sizeControl * 1570}px`,
+          marginTop: `${props.sizeControl * 60}px`,
         }}>
         <img
           src={props.OGETSwitch === "oGT" ? GTa : GTe}
-          style={{ width: `${props.sizeControl * 400}px` }}></img>
+          style={{ width: `${props.sizeControl * 350}px` }}></img>
       </div>
       <div
         className="Container-details-main"
